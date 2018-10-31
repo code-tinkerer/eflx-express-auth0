@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+<body>
+
+<% include ../partials/header %>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div id="tag-list" class="col-sm-2 sidenav">
+      <h4>Tags</h4>
+      <% tags.forEach(function(tag, index) { %>
+        <span class="tag"><%= tag %></span><br>
+      <% }) %>
+    </div>
+
+    <div class="col-sm-10" style="padding-left: 0">
+      <div id="search-panel" class="container-fluid panel">
+        <input id="search" type="text" class="form-control" placeholder="Search" data-bind="textInput: search, valueUpdate: 'onkeyup'"></input>
+      </div>
+      
+      <% items.forEach(function(item, index) { %>
+      <div class="item-info">
+        <div class="item-title ellipsis">
+          <a href="<%= item.url %>" target="_blank"><%= item.title %></a>
+        </div>
+        <div class="item-comments ellipsis">
+          <small><%= item.comments || "(no comments)" %></small>
+        </div>
+        <div class="item-attributes ellipsis">
+          <span class="label label-primary">Grade <%= item.grade || 'None' %></span>
+          <span class="label label-warning"><%= item.subject || 'No subject' %></span>
+          <span class="label label-success"><%= item.rating %> <i class="fa fa-star"></i></span>
+          <% if (item.tags) { %>
+            <% item.tags.forEach(function(tag, index) { %>
+              <label class="label label-danger"><%= tag %></label>
+            <% }) %>
+          <% } %>
+          <% if (!item.tags) { %>
+          <label class="label label-danger">Uncategorized</label>
+          <% } %>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer %>
+
+</body>
+</html>

@@ -12,7 +12,10 @@ router.post("/login", async (request, response) => {
 });
 
 router.get("/callback", async (request, response) => {
+    // parse the callback response here
     response.render("users/callback");
+
+    console.log("after rendering callback");
 });
 
 router.get("/signup", async (request, response) => {
@@ -48,4 +51,9 @@ router.get("/logout", async (request, response) => {
     response.redirect("/");
 });
 
+router.get("/items", async (request, response) => {
+    console.log("rendering users/items");
+    response.render("users/items");
+    console.log("rendered users/items");
+})
 module.exports = router;

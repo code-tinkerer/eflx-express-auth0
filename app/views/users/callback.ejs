@@ -23,9 +23,6 @@
 <% include ../partials/footer %>
 
 <script>
-import { handleAuth } from "/lib/auth";
-
-/*
 handleAuth(error => {
   if (error)
   {
@@ -34,7 +31,6 @@ handleAuth(error => {
       return;
   }
   
-  this.$router.push("/secret");
+  window.location.href = "/items";
 });
-*/
 </script>

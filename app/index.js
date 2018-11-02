@@ -41,5 +41,6 @@ app.get("/", (request, response) => {
 
 app.use("/items", controllers.items);
 app.use("/users", controllers.users);
+app.use("/auth", controllers.auth);
 
 module.exports = app;

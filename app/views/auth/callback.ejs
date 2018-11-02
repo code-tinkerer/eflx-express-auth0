@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+<body>
+
+<% include ../partials/header %>
+
+<div class="container-fluid">
+  <div class="col-sm-6 col-sm-offset-3">
+      <h3><i class="fa fa-sign-in"></i> Login</h3>
+
+      <h3>This is the callback page</h3>
+    </form>
+
+    <hr>
+
+    <p>No account? <a href="/users/signup">Sign up</a></p>
+  </div>
+</div>
+
+<% include ../partials/footer %>
+
+<script>
+handleAuth(error => {
+  if (error)
+  {
+      console.log(error);
+
+      return;
+  }
+  
+  window.location.href = "/users/items";
+});
+</script>

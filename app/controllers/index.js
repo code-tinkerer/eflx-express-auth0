@@ -1,4 +1,5 @@
 module.exports = {
-    items: require("./items"),
-    users: require("./users")
+    auth: require("./auth-controller"),
+    items: require("./items-controller"),
+    users: require("./users-controller")
 }

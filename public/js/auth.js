@@ -51,13 +51,3 @@ function logout()
 
     tokens = {};
 };
-
-/*
-export {
-    login,
-    signup,
-    handleAuth,
-    isLoggedIn,
-    logout
-};
-*/

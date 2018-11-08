@@ -1,5 +1,6 @@
 const express = require("express");
-const axios = require("axios");
+
+const api = require("../../lib/api");
 
 const tags = [
     "api", "auth", "node", "nodejs", "scotch", "philosophy", "physics", "science",
@@ -9,7 +10,9 @@ const tags = [
 const router = express.Router();
 
 router.get("/", async (request, response) => {
-    const result = await axios.get("http://localhost:8080/api/v1/items");
+    var userId = request.user.id;
+
+    const result = await api.call(`/api/v1/${userId}/items`);
 
     response.render("items/index", {items: result.data.items, tags: tags});
 });

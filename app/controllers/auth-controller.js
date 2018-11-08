@@ -9,7 +9,8 @@ router.get("/google", passport.authenticate("google", {scope: ["profile", "email
 // to send the user to the callback page to which google sends the application
 // back after authentication
 router.get("/google/callback", passport.authenticate("google", {
-    successRedirect: "/users/profile",
+    //successRedirect: "/users/profile",
+    successRedirect: "/items",
     failureRedirect: "/"
 }));
 

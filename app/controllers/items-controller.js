@@ -10,9 +10,14 @@ const tags = [
 const router = express.Router();
 
 router.get("/", async (request, response) => {
-    var userId = request.user.id;
+    if (!request.user)
+    {
+        response.redirect("/");
 
-    const result = await api.call(`/api/v1/${userId}/items`);
+        return;
+    }
+
+    const result = await api.call(`/api/v1/users/${request.user.id}/items`);
 
     response.render("items/index", {items: result.data.items, tags: tags});
 });
